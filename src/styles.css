@@ -1,0 +1,187 @@
+:root {
+  color-scheme: light dark;
+  --fg: #1c1c1c;
+  --bg: #f4f4f4;
+  --muted: #8a8a8a;
+  --meter-track: #dcdcdc;
+  --meter-fill: #8a8a8a;
+  --error: #c62828;
+  --btn-border: #bdbdbd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --fg: #ececec;
+    --bg: #222426;
+    --muted: #9a9a9a;
+    --meter-track: #3a3d40;
+    --meter-fill: #9a9a9a;
+    --error: #ff8a80;
+    --btn-border: #555;
+  }
+}
+
+:root[data-theme='dark'] {
+  --fg: #ececec;
+  --bg: #222426;
+  --muted: #9a9a9a;
+  --meter-track: #3a3d40;
+  --meter-fill: #9a9a9a;
+  --error: #ff8a80;
+  --btn-border: #555;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* F-014: スクロールを出さない */
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+}
+
+/* 内容の領域は 292×80px。上下 4px、左右 8px の余白（6.2） */
+.app {
+  box-sizing: border-box;
+  width: 292px;
+  height: 80px;
+  padding: 4px 8px;
+  display: grid;
+  grid-template-columns: auto auto minmax(102px, 1fr);
+  grid-template-rows: 20px 20px 13px;
+  column-gap: 6px;
+  row-gap: 2px;
+  align-content: center;
+}
+
+.elapsed {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.db {
+  grid-column: 2;
+  grid-row: 1;
+  width: 52px;
+  font-size: 11px;
+  line-height: 20px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.meter {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+  height: 8px;
+  background: var(--meter-track);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  background: var(--meter-fill);
+}
+
+.mic-row {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  min-width: 0;
+}
+
+.mic-select {
+  width: 100%;
+  max-width: 138px;
+  height: 20px;
+  font-size: 11px;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--btn-border);
+  border-radius: 3px;
+}
+
+.controls {
+  grid-column: 3;
+  grid-row: 2;
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.btn {
+  width: 30px;
+  height: 20px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  line-height: 1;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--btn-border);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.btn[aria-pressed='true'] {
+  background: var(--meter-track);
+}
+
+.rec-dot {
+  color: var(--error);
+}
+
+.status {
+  grid-column: 1 / span 3;
+  grid-row: 3;
+  height: 13px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.status-text {
+  display: inline-block;
+}
+
+.status-text.is-error {
+  color: var(--error);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  display: block;
+}
+
+.status-text.ticker {
+  animation: ticker 12s linear infinite;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-text.ticker {
+    animation: none;
+  }
+}

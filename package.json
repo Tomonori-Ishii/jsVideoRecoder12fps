@@ -1,0 +1,31 @@
+{
+  "name": "video-recoder",
+  "version": "0.1.0",
+  "private": true,
+  "description": "画面と音声を mp4 に記録する小型のデスクトップアプリ（開発用）",
+  "main": "electron/main.cjs",
+  "type": "module",
+  "scripts": {
+    "dev": "vite build && electron .",
+    "build": "vite build",
+    "start": "electron .",
+    "test:unit": "vitest run",
+    "test:e2e": "node tests/e2e/run-e2e.mjs",
+    "test:static": "python3 -m pytest tests/static -q"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "dependencies": {
+    "electron": "45.4.1",
+    "mp4-muxer": "5.2.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "6.3.0",
+    "playwright-core": "1.65.1",
+    "vite": "8.3.8",
+    "vitest": "5.1.1"
+  }
+}

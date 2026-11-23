@@ -1,0 +1,251 @@
+{
+  "at": "2026-11-23T12:16:26.618Z",
+  "results": [
+    {
+      "id": "F-001-a",
+      "name": "待機中は開始が有効、停止・一時停止は無効",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "F-001-b",
+      "name": "録画中は経過時間が進み、開始は無効",
+      "ok": true,
+      "detail": "0:00:01.3"
+    },
+    {
+      "id": "F-005-a",
+      "name": "録画中は音量バーと dB 表示が無音より上を示す（フェイクのマイク音、3 秒間の最大）",
+      "ok": true,
+      "detail": "最大 aria-valuenow=92 最後の dB=-10.0 dB"
+    },
+    {
+      "id": "F-034",
+      "name": "録画ごとに符号化の要求と結果（ハードウェア優先、CPU へのフォールバック）を記録する",
+      "ok": true,
+      "detail": "{\"hwRequested\":\"prefer-hardware\",\"accepted\":\"no-preference\",\"fellBack\":true}"
+    },
+    {
+      "id": "CPU",
+      "name": "録画中の Electron 全体の CPU 使用率（参考値。要件 7.4 の上限は 10%）",
+      "ok": true,
+      "detail": "平均 35.6%（1 コア = 100%、コア数 6。機全体では 5.9%）"
+    },
+    {
+      "id": "F-006",
+      "name": "一時停止中は音量バーを 0%、dB 表示を -60.0 dB にする",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "F-002",
+      "name": "一時停止中は経過時間が進まず、ボタンが再開になる",
+      "ok": true,
+      "detail": "0:00:06.6 -> 0:00:06.6"
+    },
+    {
+      "id": "F-003",
+      "name": "再開すると経過時間が続きから進む",
+      "ok": true,
+      "detail": "0:00:06.6 -> 0:00:08.0"
+    },
+    {
+      "id": "F-010",
+      "name": "停止後に「保存しました: <絶対パス>」を表示する",
+      "ok": true,
+      "detail": "保存しました: /tmp/vr-e2e-MLvINy/Downloads/screen_20261123_211504.mp4"
+    },
+    {
+      "id": "F-030",
+      "name": "ファイル名が screen_YYYYMMDD_HHMMSS.mp4 で Downloads に保存される",
+      "ok": true,
+      "detail": "screen_20261123_211504.mp4"
+    },
+    {
+      "id": "F-021",
+      "name": "映像のフレームレートが 12fps",
+      "ok": true,
+      "detail": "12/1"
+    },
+    {
+      "id": "F-022",
+      "name": "H.264 の mp4、1920×1080",
+      "ok": true,
+      "detail": "h264 1920x1080 High"
+    },
+    {
+      "id": "F-024",
+      "name": "一時停止を除いた録画時間と映像の長さが一致（±0.25 秒）",
+      "ok": true,
+      "detail": "mp4=8.22s 停止直前の経過時間=8.0s"
+    },
+    {
+      "id": "F-020-a",
+      "name": "音声トラックがある（Opus 48kHz モノラル）",
+      "ok": true,
+      "detail": "opus 48000 1"
+    },
+    {
+      "id": "F-019",
+      "name": "録画した mp4 がエラーなくデコードできる",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "F-012",
+      "name": "「待機中」「録画中」「一時停止中」の文字を表示しない",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "F-007-a",
+      "name": "マイクの一覧にデバイス名が出る",
+      "ok": true,
+      "detail": "Fake Default Audio Input / Fake Audio Input 1 / Fake Audio Input 2"
+    },
+    {
+      "id": "F-011",
+      "name": "操作ボタン（開始・一時停止・停止・ミュート）が aria-label と title を持つ",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "F-008",
+      "name": "起動時にマイクの名前が表示される（許可済み）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "F-013-a",
+      "name": "ミュートを押すと状態が切り替わる",
+      "ok": true,
+      "detail": "aria-pressed=true"
+    },
+    {
+      "id": "F-013-b",
+      "name": "ミュートを解除するとアイコンが戻る",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "F-005-b",
+      "name": "録画中に音量が表示されている（保存まで完了）",
+      "ok": true,
+      "detail": "保存しました: /tmp/vr-e2e-MiwyhH/Downloads/screen_20261123_211519.mp4"
+    },
+    {
+      "id": "F-015",
+      "name": "開始ボタンを連打しても録画は 1 本だけ",
+      "ok": true,
+      "detail": "mp4=1"
+    },
+    {
+      "id": "F-018",
+      "name": "一時停止・再開を連打しても状態が食い違わない（保存まで正常）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "F-017-a",
+      "name": "停止処理が失敗するとエラーを表示する",
+      "ok": true,
+      "detail": "保存に失敗しました: EACCES: permission denied, open '/tmp/vr-e2e-zQ4y5I/Downloads/screen_20261123_211533.mp4.partial'"
+    },
+    {
+      "id": "F-017-b",
+      "name": "失敗後にボタンが初期状態に戻る（開始が有効）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "F-029",
+      "name": "失敗時に .partial が残らない",
+      "ok": true,
+      "detail": "partial=0"
+    },
+    {
+      "id": "F-017-c",
+      "name": "失敗後に次の録画を開始・保存できる",
+      "ok": true,
+      "detail": "保存しました: /tmp/vr-e2e-zQ4y5I/Downloads/screen_20261123_211536.mp4"
+    },
+    {
+      "id": "F-038",
+      "name": "異常終了後、次回起動時に中間ファイルを削除する",
+      "ok": true,
+      "detail": "終了直後=1 再起動後=0 起動前=1"
+    },
+    {
+      "id": "F-014",
+      "name": "内容の領域は 292×80、リサイズ・最大化・全画面化ができない",
+      "ok": true,
+      "detail": "初期=292x80 最大化後=292x80 {\"resizable\":false,\"fullscreenable\":false,\"title\":\"Video Recoder\"}"
+    },
+    {
+      "id": "F-016",
+      "name": "タイトルは Video Recoder、lang は ja",
+      "ok": true,
+      "detail": "Video Recoder"
+    },
+    {
+      "id": "F-013-c",
+      "name": "ミュート中はマイクの音を無音として記録する",
+      "ok": true,
+      "detail": "mean_volume=-91 dB"
+    },
+    {
+      "id": "F-013-d",
+      "name": "ミュート中も映像と時間軸は保たれる（長さは録画時間と一致）",
+      "ok": true,
+      "detail": "duration=3.33s"
+    },
+    {
+      "id": "F-020-b",
+      "name": "マイクをミュートしてもシステム音（スピーカー側の入力）は記録に残る（フェイク環境）",
+      "ok": true,
+      "detail": "mean_volume=-21 dB"
+    },
+    {
+      "id": "F-035-a",
+      "name": "同じ画面が続いても mp4 は 12fps（枠数と長さが一致）",
+      "ok": true,
+      "detail": "nb_frames=54 duration=4.500000"
+    },
+    {
+      "id": "F-019-b",
+      "name": "静止画面の録画もデコードできる",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "F-035-b",
+      "name": "同じ画面の枠は直前の枠と同じ画素になる（スキップ枠を含む）",
+      "ok": true,
+      "detail": "連続して同じ枠=52 / 53"
+    },
+    {
+      "id": "F-035-c",
+      "name": "画面が変わった後の枠は、変わった画面になる（変化は途中の枠から）",
+      "ok": true,
+      "detail": "変化の枠=29 / 54"
+    },
+    {
+      "id": "F-031",
+      "name": "画面収録が拒否されると、その文言を表示して録画は始まらない",
+      "ok": true,
+      "detail": "画面の録画が許可されていません。OSやアプリの画面収録の設定を確認してください。"
+    },
+    {
+      "id": "F-009-a",
+      "name": "マイクが許可されないとき、所定の文言を 1 行で表示する",
+      "ok": true,
+      "detail": "マイクの使用が許可されていません。OSやアプリのマイク設定を確認してください。"
+    },
+    {
+      "id": "F-009-b",
+      "name": "録画は始まらず、開始ボタンが再び使える",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}
